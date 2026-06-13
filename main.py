@@ -4,7 +4,7 @@ import streamlit as st
 st.set_page_config(
     page_title="CareCompanionAI",
     page_icon="🏥",
-    layout="wide"
+    layout="wide",
 )
 
 # ==================== BACKEND CONNECTIONS ====================
@@ -25,6 +25,25 @@ from backend.scanner.prescription_parser import prescription_parser
 
 from backend.emergency.sos_service import sos_service
 from backend.emergency.emergency_contacts import emergency_contacts
+
+from backend.features.feature_bridge import (
+    render_prescription_scanner,
+    render_voice_assistant,
+    render_language_settings,
+)
+
+# ==================== FRONTEND IMPORTS ====================
+from frontend.components.navbar import show_navbar
+from frontend.styles.theme import load_theme
+from frontend.pages import (
+    dashboard,
+    medicines,
+    appointments,
+    health_timeline,
+    profile,
+    sos,
+    caregiver_dashboard,
+)
 
 
 # ==================== SESSION STATE ====================
@@ -73,20 +92,6 @@ st.session_state.backend = {
     "authenticated": st.session_state.authenticated,
 }
 
-
-# ==================== FRONTEND IMPORTS ====================
-from frontend.components.navbar import show_navbar
-from frontend.styles.theme import load_theme
-from frontend.pages import (
-    dashboard,
-    medicines,
-    appointments,
-    health_timeline,
-    profile,
-    sos,
-    caregiver_dashboard,
-)
-
 load_theme()
 
 
@@ -121,14 +126,14 @@ if not st.session_state.authenticated:
         age = st.number_input("Age", min_value=18, max_value=120, value=65)
         blood_group = st.selectbox(
             "Blood Group",
-            ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"]
+            ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
         )
         allergies = st.text_area("Allergies", key="signup_allergies")
         signup_email = st.text_input("Email", key="signup_email")
         signup_password = st.text_input(
             "Password",
             type="password",
-            key="signup_password"
+            key="signup_password",
         )
 
         if st.button("Create Account", type="primary"):
@@ -141,7 +146,7 @@ if not st.session_state.authenticated:
                     name,
                     age,
                     blood_group,
-                    allergies
+                    allergies,
                 )
 
                 if user:
@@ -171,5 +176,11 @@ elif page == "Profile":
     profile.show()
 elif page == "SOS":
     sos.show()
+elif page == "Prescription Scanner":
+    render_prescription_scanner()
+elif page == "Voice Assistant":
+    render_voice_assistant()
+elif page == "Language Settings":
+    render_language_settings()
 elif page == "Caregiver Dashboard":
     caregiver_dashboard.show()
