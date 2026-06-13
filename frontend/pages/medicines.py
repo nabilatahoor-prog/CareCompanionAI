@@ -1,4 +1,5 @@
-﻿import streamlit as st
+﻿from backend.database.medicine_db import medicine_db
+import streamlit as st
 
 def show():
     st.title("💊 Medicines")

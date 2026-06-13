@@ -1,4 +1,5 @@
-﻿import streamlit as st
+﻿from backend.database.timeline_db import timeline_db
+import streamlit as st
 import pandas as pd
 
 def show():

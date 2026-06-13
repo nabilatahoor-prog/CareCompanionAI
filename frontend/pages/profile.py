@@ -1,4 +1,5 @@
-﻿import streamlit as st
+﻿from backend.database.user_db import user_db
+import streamlit as st
 
 def show():
     st.title("👤 My Profile")
