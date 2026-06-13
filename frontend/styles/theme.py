@@ -7,46 +7,65 @@ def load_theme():
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
-        section[data-testid="stSidebar"] {
-            background: linear-gradient(135deg, #ffffff 0%, #e8ecf1 100%) !important;
+        [data-testid="stSidebar"] {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%) !important;
+            border-right: 2px solid #818cf8 !important;
         }
         
-        section[data-testid="stSidebar"] * {
-            color: #1a1a2e !important;
-        }
-        
-        section[data-testid="stSidebar"] h1 {
-            color: #1a1a2e !important;
-            font-size: 24px !important;
-        }
-        
-        section[data-testid="stSidebar"] .stButton button {
-            background: linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%) !important;
+        [data-testid="stSidebar"] * {
             color: white !important;
-            border-radius: 10px !important;
+        }
+        
+        [data-testid="stSidebar"] h1 {
+            color: white !important;
+            font-size: 24px !important;
+            font-weight: bold !important;
+            text-align: center !important;
+            border-bottom: 2px solid #818cf8 !important;
+            padding-bottom: 10px !important;
+        }
+        
+        [data-testid="stSidebar"] .stButton button {
+            background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 100%) !important;
+            color: white !important;
+            border-radius: 12px !important;
             padding: 10px 15px !important;
             width: 100% !important;
             margin: 5px 0 !important;
-            text-align: center !important;
-            font-weight: 600 !important;
-            border: none !important;
-            cursor: pointer !important;
+            text-align: left !important;
+            font-weight: 500 !important;
+            border: 1px solid #818cf8 !important;
         }
         
-        section[data-testid="stSidebar"] .stButton button:hover {
-            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%) !important;
-            transform: scale(1.02);
+        [data-testid="stSidebar"] .stButton button:hover {
+            background: linear-gradient(135deg, #312e81 0%, #6d28d9 100%) !important;
+            transform: translateX(3px);
+            border-color: #c4b5fd !important;
+        }
+        
+        [data-testid="stSidebar"] hr {
+            border-color: #818cf8 !important;
         }
         
         .stMetric {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: white !important;
+            border-radius: 15px !important;
+            padding: 15px !important;
+            border-left: 5px solid #818cf8 !important;
+        }
+        
+        .stMetric label {
+            color: #4c1d95 !important;
+            font-weight: bold !important;
         }
         
         h1, h2, h3 {
             color: white !important;
+        }
+        
+        .stDataFrame {
+            background: white !important;
+            border-radius: 10px !important;
         }
         </style>
     """, unsafe_allow_html=True)
